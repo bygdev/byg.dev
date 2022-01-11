@@ -29,9 +29,7 @@ const Card = ({ cards }: { cards: Card[] }) => {
 		<Fragment>
 			{cards.map((item) => (
 				<div
-					className={`w-full mb-4 md:mb-6 cursor-pointer ${
-						item.dark === themeDark ? 'block' : 'hidden'
-					}`}
+					className={`w-full cursor-pointer ${item.dark === themeDark ? 'block' : 'hidden'}`}
 					onClick={() => window.open(`https://github.com/realByg`)}
 					key={item.src}>
 					<ImgLoader src={item.src} />
@@ -71,7 +69,7 @@ export const StatsCard = () => (
 const langsCardParams = {
 	layout: 'compact',
 	langs_count: '6',
-	hide: 'python',
+	// hide: 'python',
 }
 export const LangsCard = () => (
 	<Card

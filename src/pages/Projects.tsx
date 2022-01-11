@@ -1,17 +1,23 @@
 import MotionDiv from '../components/MotionDiv'
+import { RepoCard } from '../components/ReadMeStats'
 
-const Projects = () => {
-	return (
-		<MotionDiv>
-			Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, maxime non blanditiis,
-			mollitia, porro earum amet ipsa sed deleniti illo numquam dolore accusamus voluptates iste!
-			Quia pariatur omnis dolorum eos, commodi assumenda reprehenderit ab dolor quod, illo est quasi
-			optio libero repudiandae corrupti temporibus, ut nisi accusantium iste magni corporis. Natus
-			consectetur sunt magni, nemo deserunt, assumenda in officia architecto amet libero fuga,
-			quibusdam nihil et laudantium qui est! Incidunt itaque autem perspiciatis voluptate aut harum
-			molestiae ipsa minima cupiditate mollitia enim ipsam, nobis voluptatum numquam maxime quod
-			neque reprehenderit laudantium id in dolor doloribus optio. Iste, tenetur vel?
-		</MotionDiv>
-	)
-}
+const ghRepos = [
+	'ip-lookup',
+	'simp-diary',
+	'azure-helper-bot',
+	'office-user-bot',
+	'office-user-auto-create',
+]
+
+const Projects = () => (
+	<MotionDiv>
+		<div className='w-full grid grid-cols-2 gap-4 md:gap-6 mt-4 md:mt-6'>
+			{ghRepos.map((repo) => (
+				<div className='md:col-span-1 col-span-2' key={repo}>
+					<RepoCard repo={repo} />
+				</div>
+			))}
+		</div>
+	</MotionDiv>
+)
 export default Projects

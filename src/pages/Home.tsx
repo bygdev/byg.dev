@@ -11,8 +11,12 @@ export default () => (
 		</div>
 		<div className='w-full grid grid-cols-2 gap-4 md:gap-6 mt-4 md:mt-6'>
 			<div className='md:col-span-1 col-span-2'>
-				<StatsCard />
-				<LangsCard />
+				<div className='mb-4 md:mb-6'>
+					<StatsCard />
+				</div>
+				<div className='mb-4 md:mb-6'>
+					<LangsCard />
+				</div>
 			</div>
 			<div className='md:col-span-1 col-span-2'>
 				<IconWall />

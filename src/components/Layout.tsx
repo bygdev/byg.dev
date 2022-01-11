@@ -4,10 +4,12 @@ import { Outlet, useNavigate } from 'react-router-dom'
 import { FaMoon, FaSun } from 'react-icons/fa'
 import { VscRepo } from 'react-icons/vsc'
 import { AnimatePresence } from 'framer-motion'
+import { useLocation } from 'react-router-dom'
 
 export default () => {
 	const { themeDark, setThemeDark } = useAppContext()
 	const navigate = useNavigate()
+	const location = useLocation()
 
 	return (
 		<Fragment>
@@ -19,7 +21,11 @@ export default () => {
 					</div>
 					<div className='flex-1' />
 					<div
-						className='p-2 rounded-md cursor-pointer dark:bg-zinc-800 bg-slate-300 mr-4'
+						className={`p-2 rounded-md cursor-pointer mr-4 ${
+							location.pathname === '/Projects'
+								? 'dark:bg-slate-300 bg-zinc-800 dark:text-slate-800 text-slate-200'
+								: 'dark:bg-zinc-800 bg-slate-300'
+						}`}
 						onClick={() => navigate('/Projects')}>
 						<div className='flex items-center'>
 							<VscRepo />
