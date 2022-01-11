@@ -1,6 +1,6 @@
 import 'devicon/devicon.min.css'
 
-export default () => (
+const IconWall = () => (
 	<div className='w-full text-4xl md:text-5xl grid grid-cols-4 md:grid-cols-5 gap-4 md:gap-8 mt-1'>
 		<i className='devicon-html5-plain colored mx-auto' />
 		<i className='devicon-css3-plain colored mx-auto' />
@@ -21,3 +21,4 @@ export default () => (
 		<i className='devicon-materialui-plain colored mx-auto block md:hidden' />
 	</div>
 )
+export default IconWall

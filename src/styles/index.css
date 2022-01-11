@@ -28,24 +28,4 @@ body {
 	font-family: 'Montserrat', 'NotoSansSC', serif;
 	@apply bg-slate-300 w-screen text-slate-800 overflow-x-hidden text-base select-none;
 	@apply dark:bg-zinc-800 dark:text-slate-200 delay-75 transition-all scroll-smooth;
-	/* background-image: url('./assets/svg/death-star.svg'); */
-}
-
-.underline-animation {
-	background: linear-gradient(90deg, rgba(68, 240, 232, 0) 0%, rgba(250, 49, 131, 0) 100%),
-		linear-gradient(
-			90deg,
-			rgba(68, 240, 232, 1) 0%,
-			rgba(250, 49, 131, 1) 100%,
-			rgba(255, 0, 0, 1) 100%
-		);
-	background-size: 100% 0.1em, 0 0.1em;
-	background-position: 100% 100%, 0 100%;
-	background-repeat: no-repeat;
-	transition: background-size 200ms;
-}
-
-.underline-animation:hover,
-.underline-animation:focus {
-	background-size: 0 0.1em, 100% 0.1em;
 }

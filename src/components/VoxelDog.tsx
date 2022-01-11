@@ -3,7 +3,7 @@ import * as THREE from 'three'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 import { AiOutlineLoading3Quarters } from 'react-icons/ai'
 
-export default () => {
+const VoxelDog = () => {
 	const containerRef = useRef<HTMLDivElement>(null)
 	const [loading, setLoading] = useState(true)
 
@@ -86,7 +86,6 @@ export default () => {
 		window.addEventListener('resize', setSize, false)
 
 		return () => {
-			// cleanup
 			window.cancelAnimationFrame(aniFrame)
 			window.removeEventListener('resize', setSize, false)
 			renderer.dispose()
@@ -105,3 +104,4 @@ export default () => {
 		</div>
 	)
 }
+export default VoxelDog
