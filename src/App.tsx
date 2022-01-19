@@ -1,11 +1,11 @@
-import { AppContextProvider } from './components/app-context'
+import { ThemeContextProvider } from './contexts/theme'
 import Layout from './components/Layout'
 import Home from './pages/Home'
 import Projects from './pages/Projects'
 import { Routes, Route, Navigate } from 'react-router-dom'
 
 export default () => (
-	<AppContextProvider>
+	<ThemeContextProvider>
 		<Routes>
 			<Route path='/' element={<Layout />}>
 				<Route index element={<Home />} />
@@ -13,5 +13,5 @@ export default () => (
 				<Route path='*' element={<Navigate to='/' />} />
 			</Route>
 		</Routes>
-	</AppContextProvider>
+	</ThemeContextProvider>
 )

@@ -1,13 +1,13 @@
 import { createContext, useState, useEffect, useContext } from 'react'
 
-const AppContext = createContext({
+const ThemeContext = createContext({
 	themeDark: true,
 	setThemeDark: (themeDark: boolean) => {},
 })
 
-export const useAppContext = () => useContext(AppContext)
+export const useThemeContext = () => useContext(ThemeContext)
 
-export const AppContextProvider = ({ children }: { children: JSX.Element }) => {
+export const ThemeContextProvider = ({ children }: { children: JSX.Element }) => {
 	const [themeDark, setThemeDark] = useState(true)
 
 	useEffect(() => {
@@ -19,5 +19,5 @@ export const AppContextProvider = ({ children }: { children: JSX.Element }) => {
 		localStorage.setItem('dark', themeDark ? '1' : '0')
 	}, [themeDark])
 
-	return <AppContext.Provider value={{ themeDark, setThemeDark }}>{children}</AppContext.Provider>
+	return <ThemeContext.Provider value={{ themeDark, setThemeDark }}>{children}</ThemeContext.Provider>
 }

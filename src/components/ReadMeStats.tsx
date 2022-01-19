@@ -1,4 +1,4 @@
-import { useAppContext } from './app-context'
+import { useThemeContext } from '../contexts/theme'
 import { Fragment } from 'react'
 import ImgLoader from './ImgLoader'
 
@@ -23,7 +23,7 @@ const cardColorsDark = {
 	bg_color: '18181b',
 }
 const Card = ({ cards }: { cards: Card[] }) => {
-	const { themeDark } = useAppContext()
+	const { themeDark } = useThemeContext()
 
 	return (
 		<Fragment>

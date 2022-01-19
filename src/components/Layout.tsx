@@ -1,4 +1,4 @@
-import { useAppContext } from './app-context'
+import { useThemeContext } from '../contexts/theme'
 import { Fragment } from 'react'
 import { Outlet, useNavigate } from 'react-router-dom'
 import { FaMoon, FaSun } from 'react-icons/fa'
@@ -7,7 +7,7 @@ import { AnimatePresence } from 'framer-motion'
 import { useLocation } from 'react-router-dom'
 
 export default () => {
-	const { themeDark, setThemeDark } = useAppContext()
+	const { themeDark, setThemeDark } = useThemeContext()
 	const navigate = useNavigate()
 	const location = useLocation()
 
@@ -45,14 +45,14 @@ export default () => {
 			</div>
 
 			<AnimatePresence exitBeforeEnter initial={true}>
-				<div className='min-h-[85vh]'>
+				<div className='min-h-[80vh]'>
 					<div className='mx-auto max-w-4xl px-4 mt-4 md:mt-6'>
 						<Outlet />
 					</div>
 				</div>
 			</AnimatePresence>
 
-			<div className='w-full text-center text-xs text-gray-400'>
+			<div className='w-full text-center text-xs text-gray-400 my-4'>
 				2022@BYG.DEV
 				<br className='block md:hidden' />
 				<span className='hidden md:inline'>, </span>
