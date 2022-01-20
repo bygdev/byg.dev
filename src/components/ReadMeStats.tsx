@@ -9,7 +9,6 @@ type Card = {
 
 const baseUrl = 'https://github-readme-stats.vercel.app/api'
 const cardParams = {
-	username: 'realByg',
 	hide_border: 'true',
 	border_radius: '8',
 	locale: 'en',
@@ -22,7 +21,7 @@ const cardColorsDark = {
 	text_color: 'e2e8f0',
 	bg_color: '18181b',
 }
-const Card = ({ cards }: { cards: Card[] }) => {
+const Card = ({ cards, link }: { cards: Card[]; link: string }) => {
 	const { themeDark } = useThemeContext()
 
 	return (
@@ -30,7 +29,7 @@ const Card = ({ cards }: { cards: Card[] }) => {
 			{cards.map((item) => (
 				<div
 					className={`w-full cursor-pointer ${item.dark === themeDark ? 'block' : 'hidden'}`}
-					onClick={() => window.open(`https://github.com/realByg`)}
+					onClick={() => window.open(link)}
 					key={item.src}>
 					<ImgLoader src={item.src} />
 				</div>
@@ -43,14 +42,16 @@ const statsCardParams = {
 	show_icons: 'true',
 	line_height: '30',
 }
-export const StatsCard = () => (
+export const StatsCard = ({ username }: { username: string }) => (
 	<Card
+		link={`https://github.com/${username}`}
 		cards={[
 			{
 				src: `${baseUrl}?${new URLSearchParams({
 					...cardParams,
 					...cardColors,
 					...statsCardParams,
+					username,
 				}).toString()}`,
 				dark: false,
 			},
@@ -59,6 +60,7 @@ export const StatsCard = () => (
 					...cardParams,
 					...cardColorsDark,
 					...statsCardParams,
+					username,
 				}).toString()}`,
 				dark: true,
 			},
@@ -71,14 +73,16 @@ const langsCardParams = {
 	langs_count: '6',
 	// hide: 'python',
 }
-export const LangsCard = () => (
+export const LangsCard = ({ username }: { username: string }) => (
 	<Card
+		link={`https://github.com/${username}`}
 		cards={[
 			{
 				src: `${baseUrl}/top-langs/?${new URLSearchParams({
 					...cardParams,
 					...cardColors,
 					...langsCardParams,
+					username,
 				}).toString()}`,
 				dark: false,
 			},
@@ -87,6 +91,7 @@ export const LangsCard = () => (
 					...cardParams,
 					...cardColorsDark,
 					...langsCardParams,
+					username,
 				}).toString()}`,
 				dark: true,
 			},
@@ -94,14 +99,16 @@ export const LangsCard = () => (
 	/>
 )
 
-export const RepoCard = ({ repo }: { repo: string }) => (
+export const RepoCard = ({ usernameRepo }: { usernameRepo: string }) => (
 	<Card
+		link={`https://github.com/${usernameRepo}`}
 		cards={[
 			{
 				src: `${baseUrl}/pin/?${new URLSearchParams({
 					...cardParams,
 					...cardColors,
-					repo,
+					username: usernameRepo.split('/')[0],
+					repo: usernameRepo.split('/')[1],
 				}).toString()}`,
 				dark: false,
 			},
@@ -109,7 +116,8 @@ export const RepoCard = ({ repo }: { repo: string }) => (
 				src: `${baseUrl}/pin/?${new URLSearchParams({
 					...cardParams,
 					...cardColorsDark,
-					repo,
+					username: usernameRepo.split('/')[0],
+					repo: usernameRepo.split('/')[1],
 				}).toString()}`,
 				dark: true,
 			},

@@ -45,10 +45,8 @@ export default () => {
 			</div>
 
 			<AnimatePresence exitBeforeEnter initial={true}>
-				<div className='min-h-[80vh]'>
-					<div className='mx-auto max-w-4xl px-4 mt-4 md:mt-6'>
-						<Outlet />
-					</div>
+				<div className='min-h-[82vh] mx-auto max-w-4xl px-4 mt-4 md:mt-6'>
+					<Outlet />
 				</div>
 			</AnimatePresence>
 

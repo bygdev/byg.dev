@@ -4,6 +4,8 @@ import IconWall from '../components/IconWall'
 import VoxelDog from '../components/VoxelDog'
 import MotionDiv from '../components/MotionDiv'
 
+const ghUsername = 'realByg'
+
 export default () => (
 	<MotionDiv>
 		<div className='w-full'>
@@ -11,11 +13,11 @@ export default () => (
 		</div>
 		<div className='w-full grid grid-cols-2 gap-4 md:gap-6 mt-4 md:mt-6'>
 			<div className='md:col-span-1 col-span-2'>
-				<div className='mb-4 md:mb-6'>
-					<StatsCard />
+				<div className='w-full'>
+					<StatsCard username={ghUsername} />
 				</div>
-				<div className='mb-4 md:mb-6'>
-					<LangsCard />
+				<div className='w-full mt-4 md:mt-6'>
+					<LangsCard username={ghUsername} />
 				</div>
 			</div>
 			<div className='md:col-span-1 col-span-2'>
